@@ -33,24 +33,24 @@ export default function GpuDeviceCard({ gpu }: Props) {
       </div>
 
       <div className={styles.bars}>
-        <Bar label="GPU" pct={gpu.gpu_util_percent} color="var(--accent)" />
-        <Bar label="Mem" pct={memUsedPct} color="var(--success)" />
+        <Bar label="GPU利用率" pct={gpu.gpu_util_percent} color="var(--accent)" />
+        <Bar label="显存" pct={memUsedPct} color="var(--success)" />
       </div>
 
       <div className={styles.details}>
         <div className={styles.detailRow}>
-          <span className={styles.detailLabel}>Memory</span>
+          <span className={styles.detailLabel}>显存</span>
           <span className={styles.detailValue}>
             {gpu.mem_used_human} / {gpu.mem_total_human}
           </span>
         </div>
         <div className={styles.detailRow}>
-          <span className={styles.detailLabel}>Temperature</span>
+          <span className={styles.detailLabel}>温度</span>
           <span className={styles.detailValue}>{gpu.temperature_c}°C</span>
         </div>
         {gpu.has_power && (
           <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Power</span>
+            <span className={styles.detailLabel}>功耗</span>
             <span className={styles.detailValue}>
               {gpu.power_mw / 1000}W
               {gpu.has_power_limit ? ` / ${gpu.power_limit_mw / 1000}W` : ''}
@@ -59,12 +59,12 @@ export default function GpuDeviceCard({ gpu }: Props) {
         )}
         {gpu.has_fan_speed && (
           <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Fan</span>
+            <span className={styles.detailLabel}>风扇</span>
             <span className={styles.detailValue}>{gpu.fan_speed_percent}%</span>
           </div>
         )}
         <div className={styles.detailRow}>
-          <span className={styles.detailLabel}>Driver</span>
+          <span className={styles.detailLabel}>驱动</span>
           <span className={styles.detailValue}>{gpu.driver_version}</span>
         </div>
         <div className={styles.detailRow}>

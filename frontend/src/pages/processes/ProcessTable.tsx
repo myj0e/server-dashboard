@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import {
   useReactTable,
   getCoreRowModel,
@@ -20,15 +20,15 @@ const columns = [
     size: 70,
   }),
   columnHelper.accessor('user', {
-    header: 'User',
+    header: '用户',
     size: 80,
   }),
   columnHelper.accessor('name', {
-    header: 'Name',
+    header: '进程名',
     size: 150,
   }),
   columnHelper.accessor('state', {
-    header: 'S',
+    header: '状态',
     size: 30,
     cell: (info) => {
       const s = info.getValue();
@@ -48,22 +48,22 @@ const columns = [
     size: 70,
   }),
   columnHelper.accessor('rss_human', {
-    header: 'RSS',
+    header: '物理内存',
     size: 90,
     cell: (info) => <span className={styles.mono}>{info.getValue()}</span>,
   }),
   columnHelper.accessor('vsize_human', {
-    header: 'VSZ',
+    header: '虚拟内存',
     size: 90,
     cell: (info) => <span className={styles.mono}>{info.getValue()}</span>,
   }),
   columnHelper.accessor('thread_count', {
-    header: 'Thr',
+    header: '线程',
     size: 50,
     cell: (info) => <span className={styles.mono}>{info.getValue()}</span>,
   }),
   columnHelper.accessor('cmdline', {
-    header: 'Command',
+    header: '命令行',
     size: 300,
     cell: (info) => (
       <span className={styles.cmdline}>{info.getValue() || '--'}</span>
@@ -106,12 +106,12 @@ export default function ProcessTable({ processes, onSelect }: Props) {
       <div className={styles.toolbar}>
         <input
           className={styles.search}
-          placeholder="Search by PID, name, user, or command..."
+          placeholder="搜索 PID、进程名、用户或命令..."
           value={globalFilter}
           onChange={(e) => setGlobalFilter(e.target.value)}
         />
         <span className={styles.count}>
-          {table.getFilteredRowModel().rows.length} of {processes.length} processes
+          {table.getFilteredRowModel().rows.length} / {processes.length} 个进程
         </span>
       </div>
       <div className={styles.tableWrap}>

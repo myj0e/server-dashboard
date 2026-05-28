@@ -20,22 +20,22 @@ export default function ProcessSummaryBand({ summary }: Props) {
     return (
       <div className={styles.band}>
         <MetricCard label="CPU" value="--" />
-        <MetricCard label="Processes" value="--" />
-        <MetricCard label="Running" value="--" />
-        <MetricCard label="Last Sample" value="--" />
+        <MetricCard label="进程数" value="--" />
+        <MetricCard label="运行中" value="--" />
+        <MetricCard label="最新采样" value="--" />
       </div>
     );
   }
 
   return (
     <div className={styles.band}>
-      <MetricCard label="Total CPU" value={formatPct(summary.cpu_percent)} />
-      <MetricCard label="Processes" value={String(summary.process_count)} sub={`${summary.running_count} running`} />
-      <MetricCard label="Sleeping" value={String(summary.sleeping_count)} />
-      <MetricCard label="Zombie" value={String(summary.zombie_count)} />
-      <MetricCard label="RAM Used" value={summary.used_ram_human} sub={summary.total_ram_human + ' total'} />
-      <MetricCard label="CPUs" value={String(summary.online_cpus)} />
-      <MetricCard label="Last Sample" value={formatMs(summary.sampled_at_ms)} />
+      <MetricCard label="总CPU" value={formatPct(summary.cpu_percent)} />
+      <MetricCard label="进程数" value={String(summary.process_count)} sub={`${summary.running_count} 运行中`} />
+      <MetricCard label="睡眠" value={String(summary.sleeping_count)} />
+      <MetricCard label="僵尸" value={String(summary.zombie_count)} />
+      <MetricCard label="已用内存" value={summary.used_ram_human} sub={summary.total_ram_human + ' 总计'} />
+      <MetricCard label="CPU核心" value={String(summary.online_cpus)} />
+      <MetricCard label="最新采样" value={formatMs(summary.sampled_at_ms)} />
     </div>
   );
 }

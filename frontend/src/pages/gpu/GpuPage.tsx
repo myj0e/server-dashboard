@@ -27,13 +27,13 @@ export default function GpuPage({ config }: Props) {
   if (!config.enable_gpu) {
     return (
       <div className={styles.page}>
-        <ErrorBanner message="GPU monitoring is disabled in the backend configuration (enable_gpu = false)" />
+        <ErrorBanner message="GPU 监控已在后端配置中禁用 (enable_gpu = false)" />
       </div>
     );
   }
 
   if (loading && !data) {
-    return <div className={styles.status}>Loading GPU data...</div>;
+    return <div className={styles.status}>加载 GPU 数据中...</div>;
   }
 
   return (

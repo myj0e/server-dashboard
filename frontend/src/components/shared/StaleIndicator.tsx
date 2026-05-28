@@ -13,7 +13,7 @@ export default function StaleIndicator({ isStale, lastSampleMs }: Props) {
 
   return (
     <div className={styles.indicator}>
-      Data may be stale ({ageSec}s since last sample)
+      数据可能已过期 (距上次采样 {ageSec} 秒)
     </div>
   );
 }

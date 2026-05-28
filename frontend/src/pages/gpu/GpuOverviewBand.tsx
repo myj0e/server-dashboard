@@ -16,7 +16,7 @@ export default function GpuOverviewBand({ gpus }: Props) {
   if (gpus.length === 0) {
     return (
       <div className={styles.band}>
-        <MetricCard label="GPUs" value="0" />
+        <MetricCard label="GPU数量" value="0" />
       </div>
     );
   }
@@ -27,10 +27,10 @@ export default function GpuOverviewBand({ gpus }: Props) {
 
   return (
     <div className={styles.band}>
-      <MetricCard label="GPUs" value={String(gpus.length)} />
-      <MetricCard label="Avg Util" value={avgUtil.toFixed(0) + '%'} />
-      <MetricCard label="GPU Mem Used" value={formatBytes(totalMem)} />
-      <MetricCard label="Max Temp" value={maxTemp + '°C'} />
+      <MetricCard label="GPU数量" value={String(gpus.length)} />
+      <MetricCard label="平均利用率" value={avgUtil.toFixed(0) + '%'} />
+      <MetricCard label="显存已用" value={formatBytes(totalMem)} />
+      <MetricCard label="最高温度" value={maxTemp + '°C'} />
     </div>
   );
 }

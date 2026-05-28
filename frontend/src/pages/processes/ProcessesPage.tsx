@@ -22,7 +22,7 @@ export default function ProcessesPage({ config }: Props) {
     : null;
 
   if (loading && !data) {
-    return <div className={styles.status}>Loading process data...</div>;
+    return <div className={styles.status}>加载进程数据中...</div>;
   }
 
   return (

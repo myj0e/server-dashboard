@@ -18,7 +18,7 @@ export default function App() {
         if (res.ok) {
           setConfig(res.data);
         } else {
-          setConfigError(res.error?.message || 'Failed to load config');
+          setConfigError(res.error?.message || '加载配置失败');
         }
       })
       .catch((e) => setConfigError(e.message));
@@ -27,9 +27,9 @@ export default function App() {
   if (configError) {
     return (
       <div className={styles.errorFullscreen}>
-        <h2>Connection Error</h2>
+        <h2>连接错误</h2>
         <p>{configError}</p>
-        <p className={styles.hint}>Make sure the backend is running on port 18080</p>
+        <p className={styles.hint}>请确认后端已在 18080 端口运行</p>
       </div>
     );
   }
@@ -37,7 +37,7 @@ export default function App() {
   if (!config) {
     return (
       <div className={styles.loadingFullscreen}>
-        <p>Connecting to monitor backend...</p>
+        <p>正在连接后端服务...</p>
       </div>
     );
   }

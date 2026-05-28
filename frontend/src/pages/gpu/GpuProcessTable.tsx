@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import {
   useReactTable,
   getCoreRowModel,
@@ -25,17 +25,17 @@ const columns = [
     cell: (info) => <span className={styles.mono}>{info.getValue()}</span>,
   }),
   columnHelper.accessor('name', {
-    header: 'Name',
+    header: '进程名',
     size: 120,
     cell: (info) => info.getValue() || '--',
   }),
   columnHelper.accessor('user', {
-    header: 'User',
+    header: '用户',
     size: 80,
     cell: (info) => info.getValue() || '--',
   }),
   columnHelper.accessor('process_type', {
-    header: 'Type',
+    header: '类型',
     size: 50,
     cell: (info) => {
       const t = info.getValue();
@@ -43,7 +43,7 @@ const columns = [
     },
   }),
   columnHelper.accessor('gpu_memory_bytes', {
-    header: 'GPU Mem',
+    header: 'GPU显存',
     size: 100,
     cell: (info) => {
       const b = info.getValue();
@@ -61,7 +61,7 @@ const columns = [
     },
   }),
   columnHelper.accessor('cmdline', {
-    header: 'Command',
+    header: '命令行',
     size: 250,
     cell: (info) => (
       <span className={styles.cmdline}>{info.getValue() || '--'}</span>
@@ -102,15 +102,15 @@ export default function GpuProcessTable({ processes, onSelect }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.toolbar}>
-        <span className={styles.title}>GPU Processes</span>
+        <span className={styles.title}>GPU 进程</span>
         <input
           className={styles.search}
-          placeholder="Search by PID, name, user..."
+          placeholder="搜索 PID、进程名、用户..."
           value={globalFilter}
           onChange={(e) => setGlobalFilter(e.target.value)}
         />
         <span className={styles.count}>
-          {table.getFilteredRowModel().rows.length} processes
+          {table.getFilteredRowModel().rows.length} 个进程
         </span>
       </div>
       <div className={styles.tableWrap}>

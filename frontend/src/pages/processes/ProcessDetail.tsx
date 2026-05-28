@@ -22,10 +22,10 @@ function formatMs(ms: number): string {
   const minutes = Math.floor((ms % 3600000) / 60000);
   const seconds = Math.floor((ms % 60000) / 1000);
   const parts: string[] = [];
-  if (days > 0) parts.push(`${days}d`);
-  if (hours > 0) parts.push(`${hours}h`);
-  if (minutes > 0) parts.push(`${minutes}m`);
-  parts.push(`${seconds}s`);
+  if (days > 0) parts.push(`${days}天`);
+  if (hours > 0) parts.push(`${hours}时`);
+  if (minutes > 0) parts.push(`${minutes}分`);
+  parts.push(`${seconds}秒`);
   return parts.join(' ');
 }
 
@@ -43,31 +43,31 @@ export default function ProcessDetail({ process, onClose }: Props) {
       {process && (
         <div className={styles.grid}>
           <Row label="PID" value={String(process.pid)} />
-          <Row label="PPID" value={String(process.ppid)} />
-          <Row label="State" value={process.state} />
-          <Row label="User" value={`${process.user} (UID ${process.uid})`} />
-          <Row label="Name" value={process.name} />
-          <Row label="CPU %" value={process.cpu_percent.toFixed(2)} />
-          <Row label="RSS" value={process.rss_human} />
-          <Row label="VSZ" value={process.vsize_human} />
-          <Row label="Threads" value={String(process.thread_count)} />
-          <Row label="Priority" value={String(process.priority)} />
-          <Row label="Nice" value={String(process.nice)} />
-          <Row label="Start Time" value={formatTime(process.start_time_ms)} />
-          <Row label="Running For" value={formatMs(process.running_duration_ms)} />
+          <Row label="父进程" value={String(process.ppid)} />
+          <Row label="状态" value={process.state} />
+          <Row label="用户" value={`${process.user} (UID ${process.uid})`} />
+          <Row label="进程名" value={process.name} />
+          <Row label="CPU 占用" value={process.cpu_percent.toFixed(2) + '%'} />
+          <Row label="物理内存" value={process.rss_human} />
+          <Row label="虚拟内存" value={process.vsize_human} />
+          <Row label="线程数" value={String(process.thread_count)} />
+          <Row label="优先级" value={String(process.priority)} />
+          <Row label="Nice值" value={String(process.nice)} />
+          <Row label="启动时间" value={formatTime(process.start_time_ms)} />
+          <Row label="运行时长" value={formatMs(process.running_duration_ms)} />
           <Row
-            label="IO Read"
+            label="读取字节"
             value={process.has_io && process.read_bytes != null
-              ? String(process.read_bytes) : 'unavailable'}
+              ? String(process.read_bytes) : '不可用'}
           />
           <Row
-            label="IO Write"
+            label="写入字节"
             value={process.has_io && process.write_bytes != null
-              ? String(process.write_bytes) : 'unavailable'}
+              ? String(process.write_bytes) : '不可用'}
           />
           <div className={styles.fullRow}>
-            <span className={styles.label}>Command Line</span>
-            <pre className={styles.cmdline}>{process.cmdline || '(none)'}</pre>
+            <span className={styles.label}>命令行</span>
+            <pre className={styles.cmdline}>{process.cmdline || '(无)'}</pre>
           </div>
         </div>
       )}
