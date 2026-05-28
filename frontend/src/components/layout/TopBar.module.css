@@ -1,0 +1,40 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 20px;
+  height: 40px;
+  min-height: 40px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.info {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.label {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.value {
+  color: var(--text-primary);
+}
+
+.on {
+  color: var(--success);
+}
+
+.off {
+  color: var(--text-muted);
+}
+
+.spacer {
+  flex: 1;
+}

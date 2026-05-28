@@ -1,0 +1,25 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.status {
+  color: var(--text-muted);
+  padding: 40px;
+  text-align: center;
+  font-family: var(--font-mono);
+}
+
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.indicators {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

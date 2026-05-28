@@ -1,0 +1,32 @@
+# Backend build artifacts
+backend/*.o
+backend/src/*.o
+backend/vendor/*.o
+backend/monitor-backend
+backend/tests/test_runner
+
+# NVIDIA proprietary header - users must obtain from their system
+backend/vendor/nvml.h
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/tsconfig.*.tsbuildinfo
+
+# Runtime
+.monitor-backend.pid
+.monitor-backend.log
+
+# Claude Code
+.claude/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
