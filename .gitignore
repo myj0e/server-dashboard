@@ -3,6 +3,7 @@ backend/*.o
 backend/src/*.o
 backend/vendor/*.o
 backend/monitor-backend
+backend/.gpu_flags
 backend/tests/test_runner
 
 # NVIDIA proprietary header - users must obtain from their system
